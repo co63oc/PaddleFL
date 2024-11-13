@@ -42,7 +42,7 @@ public:
                         "Learning rate should have 1 element");
       auto param_dim = ctx->GetInputDim("Param");
       if (ctx->GetInputsVarType("Grad")[0] ==
-          framework::proto::VarType::LOD_TENSOR) {
+          framework::proto::VarType::DENSE_TENSOR) {
         PADDLE_ENFORCE_EQ(
             param_dim, ctx->GetInputDim("Grad"),
             platform::errors::InvalidArgument(
@@ -67,7 +67,7 @@ public:
     void operator()(framework::InferVarTypeContext *ctx) const override {
       auto in_var_type = ctx->GetInputType("Param");
       PADDLE_ENFORCE(in_var_type == framework::proto::VarType::SELECTED_ROWS ||
-                         in_var_type == framework::proto::VarType::LOD_TENSOR,
+                         in_var_type == framework::proto::VarType::DENSE_TENSOR,
                      "The input Var's type should be LoDtensor or SelectedRows,"
                      " but the received var(%s)'s type is %s",
                      ctx->InputVarName("Param"), in_var_type);

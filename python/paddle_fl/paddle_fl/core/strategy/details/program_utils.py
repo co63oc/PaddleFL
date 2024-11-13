@@ -69,7 +69,7 @@ def variable_to_code(var):
     Returns:
         string: The formatted string.
     """
-    if var.type == core.VarDesc.VarType.SELECTED_ROWS or var.type == core.VarDesc.VarType.LOD_TENSOR:
+    if var.type == core.VarDesc.VarType.SELECTED_ROWS or var.type == core.VarDesc.VarType.DENSE_TENSOR:
         var_str = "{name} : fluid.{type}.shape{shape}.astype({dtype})".\
             format(i="{", e="}", name=var.name, type=var.type, shape=var.shape, dtype=var.dtype)
     else:

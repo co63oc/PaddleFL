@@ -62,7 +62,7 @@ class MpcLayerHelper(LayerHelper):
                              is_bias=False,
                              default_initializer=None,
                              stop_gradient=False,
-                             type=core.VarDesc.VarType.LOD_TENSOR):
+                             type=core.VarDesc.VarType.DENSE_TENSOR):
         """
         Create mpc parameters for this layers.
         Refer to LayerHelper.create_parameter in Paddle 1.7.
@@ -159,7 +159,7 @@ class MpcLayerHelper(LayerHelper):
             name=unique_name.generate_with_ignorable_key(".".join(
                 [self.name, 'tmp'])),
             dtype=dtype,
-            type=core.VarDesc.VarType.LOD_TENSOR,
+            type=core.VarDesc.VarType.DENSE_TENSOR,
             persistable=False,
             stop_gradient=stop_gradient)
 

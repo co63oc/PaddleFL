@@ -71,7 +71,7 @@ public:
         ctx->SetOutputDim("Out", out_dims);
 
         if (ctx->GetOutputsVarType("Out")[0] ==
-                framework::proto::VarType::LOD_TENSOR) {
+                framework::proto::VarType::DENSE_TENSOR) {
             ctx->ShareLoD("Ids", /*->*/ "Out");
         }
     }
@@ -192,7 +192,7 @@ class MpcLookupTableV2OpGradVarTypeInference : public framework::VarTypeInferenc
     } else {
       VLOG(3) << "mpc_lookup_table_v2_grad op " << framework::GradVarName("W")
               << " is set to LoDTensor";
-      ctx->SetOutputType(out_var_name, framework::proto::VarType::LOD_TENSOR);
+      ctx->SetOutputType(out_var_name, framework::proto::VarType::DENSE_TENSOR);
     }
     ctx->SetOutputDataType(out_var_name, ctx->GetInputDataType("W"));
   }

@@ -47,7 +47,7 @@ def data(name, shape, dtype='int64', lod_level=0):
         name=name,
         shape=shape,
         dtype=dtype,
-        type=core.VarDesc.VarType.LOD_TENSOR,
+        type=core.VarDesc.VarType.DENSE_TENSOR,
         stop_gradient=True,
         lod_level=lod_level,
         is_data=True,

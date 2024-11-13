@@ -244,14 +244,14 @@ class MPCAdamOptimizer(Optimizer):
                 fill_value=0.9 if isinstance(self._beta1, Variable) \
                         else self._beta1,
                 shape=[1],
-                type=core.VarDesc.VarType.LOD_TENSOR, device='cpu', dtype='float32')
+                type=core.VarDesc.VarType.DENSE_TENSOR, device='cpu', dtype='float32')
             self._add_accumulator(
                 name=self._beta2_pow_acc_str,
                 param=p,
                 fill_value=0.999 if isinstance(self._beta2, Variable) \
                         else self._beta2,
                 shape=[1],
-                type=core.VarDesc.VarType.LOD_TENSOR, device='cpu', dtype='float32')
+                type=core.VarDesc.VarType.DENSE_TENSOR, device='cpu', dtype='float32')
 
     def _append_optimize_op(self, block, param_and_grad):
         assert isinstance(block, framework.Block)

@@ -213,7 +213,7 @@ class XavierInitializer(Initializer):
                     ['gaussian_random_expand', output_var.name, 'tmp'])),
                 shape=input_var.shape,
                 dtype=input_var.dtype,
-                type=VarDesc.VarType.LOD_TENSOR,
+                type=VarDesc.VarType.DENSE_TENSOR,
                 persistable=False)
 
             block.append_op(
@@ -327,7 +327,7 @@ class XavierInitializer(Initializer):
                 ['gaussian_random', var.name, 'tmp'])),
             shape=shape_,
             dtype=out_dtype,
-            type=VarDesc.VarType.LOD_TENSOR,
+            type=VarDesc.VarType.DENSE_TENSOR,
             persistable=False)
 
         if self._uniform:

@@ -40,7 +40,7 @@ class MpcVariable(Variable):
 
     def __init__(self,
                  block,
-                 type=core.VarDesc.VarType.LOD_TENSOR,
+                 type=core.VarDesc.VarType.DENSE_TENSOR,
                  name=None,
                  shape=None,
                  dtype=None,
@@ -158,7 +158,7 @@ class MpcParameter(MpcVariable):
                  block,
                  shape,
                  dtype,
-                 type=core.VarDesc.VarType.LOD_TENSOR,
+                 type=core.VarDesc.VarType.DENSE_TENSOR,
                  **kwargs):
         if shape is None:
             raise ValueError("The shape of MpcParameter should not be None")
